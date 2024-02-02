@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://bmu2wyunwb66f"]
+
+[ext_resource type="Script" path="res://Assets/Scripts/HpBar.cs" id="1_q7rcw"]
+
+[node name="Control" type="Control" groups=["HUD"]]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_q7rcw")
+
+[node name="Score" type="Label" parent="." groups=["Score"]]
+layout_mode = 0
+offset_left = 1620.0
+offset_top = 44.0
+offset_right = 1876.0
+offset_bottom = 135.0
+theme_override_font_sizes/font_size = 64
+text = "0"
+horizontal_alignment = 2
+vertical_alignment = 1

@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=3 uid="uid://bc4qidutgi0nu"]
+
+[ext_resource type="Script" path="res://Assets/Scripts/SpaceInvader.cs" id="1_dxvlx"]
+[ext_resource type="Texture2D" uid="uid://bm5tpomcvdj4t" path="res://Assets/Sprites/Space_Invader.png" id="1_vu3hj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wjgji"]
+size = Vector2(12, 7.2)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iuxf8"]
+atlas = ExtResource("1_vu3hj")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1sb6k"]
+atlas = ExtResource("1_vu3hj")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_f4iuk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iuxf8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1sb6k")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Space Invader" type="CharacterBody2D" groups=["Alien"]]
+scale = Vector2(5, 5)
+script = ExtResource("1_dxvlx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.6)
+shape = SubResource("RectangleShape2D_wjgji")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_f4iuk")
+frame = 1
+frame_progress = 0.200808

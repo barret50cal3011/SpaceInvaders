@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://cxkfabn20rcf3"]
+
+[ext_resource type="PackedScene" uid="uid://bhf8vqvlpsu3f" path="res://Assets/Scenes/Tank.tscn" id="1_vaox3"]
+[ext_resource type="PackedScene" uid="uid://b7rkaooqmkjrd" path="res://Assets/Scenes/aliens.tscn" id="2_msf5u"]
+[ext_resource type="PackedScene" uid="uid://bmu2wyunwb66f" path="res://Assets/Scenes/hp_bar.tscn" id="3_te8bw"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Tank" parent="." instance=ExtResource("1_vaox3")]
+position = Vector2(960, 1000)
+
+[node name="Aliens" parent="." instance=ExtResource("2_msf5u")]
+position = Vector2(100, 200)
+
+[node name="HP Bar" parent="." instance=ExtResource("3_te8bw")]

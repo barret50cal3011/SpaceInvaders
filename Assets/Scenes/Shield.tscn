@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dtheg3l5dll2t"]
+
+[ext_resource type="Texture2D" uid="uid://dg3ch0wn21n3p" path="res://Assets/Sprites/shield.png" id="1_m2ykh"]
+
+[node name="TextureRect" type="TextureRect"]
+offset_left = -40.0
+offset_top = -40.0
+scale = Vector2(2, 2)
+texture = ExtResource("1_m2ykh")

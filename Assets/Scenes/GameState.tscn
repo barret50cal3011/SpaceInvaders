@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bq53pm4cknrs2"]
+
+[ext_resource type="Script" path="res://Assets/Scripts/GameState.cs" id="1_vcbdr"]
+
+[node name="GameState" type="Node"]
+script = ExtResource("1_vcbdr")

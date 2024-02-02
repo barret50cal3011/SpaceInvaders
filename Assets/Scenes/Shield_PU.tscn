@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://ev5grhm5r58n"]
+
+[ext_resource type="Script" path="res://Assets/Scripts/Shield_PU.cs" id="1_5e1x2"]
+[ext_resource type="Texture2D" uid="uid://dg3ch0wn21n3p" path="res://Assets/Sprites/shield.png" id="2_qahxt"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_m35f5"]
+radius = 7.20278
+
+[node name="Shield_PU" type="Area2D"]
+scale = Vector2(5, 5)
+script = ExtResource("1_5e1x2")
+fall_Speed = 400.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_m35f5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_qahxt")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
