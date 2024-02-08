@@ -1,7 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://b7rkaooqmkjrd"]
+[gd_scene load_steps=3 format=3 uid="uid://b7rkaooqmkjrd"]
 
 [ext_resource type="Script" path="res://Assets/Scripts/Aliens.cs" id="1_duihj"]
-[ext_resource type="PackedScene" uid="uid://bc4qidutgi0nu" path="res://Assets/Scenes/space_invader.tscn" id="1_tbt1q"]
 
 [sub_resource type="Curve2D" id="Curve2D_oqdcl"]
 _data = {
@@ -13,13 +12,6 @@ point_count = 18
 position = Vector2(77, 93)
 curve = SubResource("Curve2D_oqdcl")
 script = ExtResource("1_duihj")
-
-[node name="PathFollow2D" type="PathFollow2D" parent="."]
-rotation = 0.00248292
-rotates = false
-loop = false
-
-[node name="Space Invader" parent="PathFollow2D" instance=ExtResource("1_tbt1q")]
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true

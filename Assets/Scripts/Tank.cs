@@ -85,13 +85,7 @@ public partial class Tank : CharacterBody2D
 	private void _on_collition(Node2D body){
 		if(body.IsInGroup("Alien")){
 			body.QueueFree();
-			if(gs.hit() == 0){
-				GameOver();
-			}
+			gs.hit();
 		}
-	}
-
-	private void GameOver(){
-		Debug.WriteLine("game over");
 	}
 }

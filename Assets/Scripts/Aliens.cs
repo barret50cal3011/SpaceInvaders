@@ -41,4 +41,8 @@ public partial class Aliens : Path2D
 		AddChild(path);
 		paths.Add(path);
 	}
+
+	public void remove_path(PathFollow2D i_path){
+		paths.Remove(i_path);
+	}
 }

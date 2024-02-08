@@ -13,6 +13,8 @@ public partial class GameState : Node
     private int max_lives;
     private int points;
 
+    private PackedScene gameOverScene;
+
     public override void _EnterTree()
     {
         base._EnterTree();
@@ -22,12 +24,7 @@ public partial class GameState : Node
             points = 0;
             gs = this;
         }
-    }
-
-    public override void _Ready()
-    {
-        base._Ready();
-        hp_hud = (HpBar)GetTree().GetFirstNodeInGroup("HUD");
+        gameOverScene = ResourceLoader.Load<PackedScene>("res://Assets/Scenes/GameOverScreen.tscn");
     }
 
     public static GameState get_game_state(){
@@ -38,13 +35,12 @@ public partial class GameState : Node
         return lives;
     }
 
-    public int hit(){
+    public void hit(){
         lives--;
         if(lives == 0){
-            Debug.WriteLine("Game Over");
+            gameOver();
         }
         reload_lives();
-        return  lives;
     }
 
     public void add_kill(){
@@ -62,5 +58,23 @@ public partial class GameState : Node
 
     public void reload_lives(){
         hp_hud.render(lives);
+    }
+
+    public int get_points(){
+        return points;
+    }
+
+    private void gameOver(){
+        GetTree().ChangeSceneToPacked(gameOverScene);
+    }
+
+    public void reset(){
+        points = 0;
+        lives = max_lives;
+        
+    }
+
+    public void set_hp_bar(HpBar i_bar){
+        hp_hud = i_bar;
     }
 }

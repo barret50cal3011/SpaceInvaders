@@ -1,0 +1,60 @@
+[gd_scene load_steps=2 format=3 uid="uid://dlxm8j3aiyd7j"]
+
+[ext_resource type="Script" path="res://Assets/Scripts/MainMenu.cs" id="1_or13a"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_or13a")
+
+[node name="Tittle" type="Label" parent="."]
+layout_mode = 0
+offset_left = 496.0
+offset_top = 128.0
+offset_right = 1424.0
+offset_bottom = 303.0
+theme_override_font_sizes/font_size = 128
+text = "Space Invaders"
+
+[node name="New Game" type="Button" parent="."]
+layout_mode = 0
+offset_left = 896.0
+offset_top = 384.0
+offset_right = 1088.0
+offset_bottom = 432.0
+theme_override_font_sizes/font_size = 24
+text = "New Game"
+
+[node name="Options" type="Button" parent="."]
+layout_mode = 0
+offset_left = 896.0
+offset_top = 464.0
+offset_right = 1088.0
+offset_bottom = 512.0
+theme_override_font_sizes/font_size = 24
+text = "Options
+"
+
+[node name="Credits" type="Button" parent="."]
+layout_mode = 0
+offset_left = 896.0
+offset_top = 544.0
+offset_right = 1088.0
+offset_bottom = 592.0
+theme_override_font_sizes/font_size = 24
+text = "Credits"
+
+[node name="Exit" type="Button" parent="."]
+layout_mode = 0
+offset_left = 896.0
+offset_top = 624.0
+offset_right = 1088.0
+offset_bottom = 672.0
+theme_override_font_sizes/font_size = 24
+text = "Exit Game"
+
+[connection signal="pressed" from="New Game" to="." method="_on_new_game"]

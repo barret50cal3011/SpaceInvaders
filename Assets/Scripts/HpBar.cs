@@ -20,6 +20,7 @@ public partial class HpBar : Control
 	{
 		base._Ready();
 		gs = GameState.get_game_state();
+		gs.set_hp_bar(this);
 		hp = new Array<TextureRect>();
 		for(int i = 0; i < gs.get_lifes(); i++){
 			hp.Add(shield.Instantiate<TextureRect>());

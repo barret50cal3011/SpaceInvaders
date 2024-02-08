@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Diagnostics;
 
 public partial class SpaceInvader : CharacterBody2D
 {
@@ -24,6 +25,7 @@ public partial class SpaceInvader : CharacterBody2D
             GetTree().Root.AddChild(shield_instance);
             shield_instance.Position = GlobalPosition;
         }
-		QueueFree();
+        GetNode<Aliens>("../..").remove_path(GetNode<PathFollow2D>(".."));
+		GetNode("..").QueueFree();
 	}
 }
