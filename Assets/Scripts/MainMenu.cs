@@ -20,4 +20,8 @@ public partial class MainMenu : Control
 		gs.reset();
 		GetTree().ChangeSceneToPacked(game_scene);
 	}
+
+	private void _on_exit(){
+		GetTree().Quit();
+	}
 }

@@ -58,3 +58,4 @@ theme_override_font_sizes/font_size = 24
 text = "Exit Game"
 
 [connection signal="pressed" from="New Game" to="." method="_on_new_game"]
+[connection signal="pressed" from="Exit" to="." method="_on_exit"]
