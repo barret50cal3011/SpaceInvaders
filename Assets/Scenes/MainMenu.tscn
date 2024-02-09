@@ -35,12 +35,20 @@ offset_bottom = 496.0
 theme_override_font_sizes/font_size = 24
 text = "New Game"
 
-[node name="Options" type="Button" parent="."]
-layout_mode = 0
+[node name="Strategy" type="Button" parent="."]
 offset_left = 864.0
 offset_top = 528.0
 offset_right = 1056.0
 offset_bottom = 576.0
+theme_override_font_sizes/font_size = 24
+text = "Strategy"
+
+[node name="Options" type="Button" parent="."]
+layout_mode = 0
+offset_left = 864.0
+offset_top = 608.0
+offset_right = 1056.0
+offset_bottom = 656.0
 theme_override_font_sizes/font_size = 24
 text = "Options
 "
@@ -48,18 +56,18 @@ text = "Options
 [node name="Credits" type="Button" parent="."]
 layout_mode = 0
 offset_left = 864.0
-offset_top = 608.0
+offset_top = 688.0
 offset_right = 1056.0
-offset_bottom = 656.0
+offset_bottom = 736.0
 theme_override_font_sizes/font_size = 24
 text = "Credits"
 
 [node name="Exit" type="Button" parent="."]
 layout_mode = 0
 offset_left = 864.0
-offset_top = 688.0
+offset_top = 768.0
 offset_right = 1056.0
-offset_bottom = 736.0
+offset_bottom = 816.0
 theme_override_font_sizes/font_size = 24
 text = "Exit Game"
 

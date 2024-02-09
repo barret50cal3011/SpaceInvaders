@@ -1,4 +1,5 @@
 using Godot;
+using Godot.Collections;
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
@@ -34,6 +35,14 @@ public partial class Tank : CharacterBody2D
     {
         base._Ready();
 		gs = GameState.get_game_state();
+
+		if(gs.check_strat(StrategieHolder.Strategie.Speed)){
+			speed *= 2;
+		}
+
+		if(gs.check_strat(StrategieHolder.Strategie.FireRate)){
+			cooldown /= 2;
+		}
     }
 
     public override void _Process(double delta)

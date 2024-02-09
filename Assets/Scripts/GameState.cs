@@ -1,4 +1,5 @@
 using Godot;
+using Godot.Collections;
 using System;
 using System.Diagnostics;
 using System.Linq;
@@ -15,13 +16,20 @@ public partial class GameState : Node
 
     private PackedScene gameOverScene;
 
+    private int difficulty;
+
+    private StrategieHolder strategies;
     public override void _EnterTree()
     {
+        strategies = new StrategieHolder();
+        //strategies.add_strategie(StrategieHolder.Strategie.Speed);
+        //strategies.add_strategie(StrategieHolder.Strategie.FireRate);
         base._EnterTree();
         if(gs == null){
             lives = 3;
             max_lives = 3;
             points = 0;
+            difficulty = 1;
             gs = this;
         }
         gameOverScene = ResourceLoader.Load<PackedScene>("res://Assets/Scenes/GameOverScreen.tscn");
@@ -46,6 +54,9 @@ public partial class GameState : Node
     public void add_kill(){
         points += 32;
         hp_hud.render_score(points);
+        if(new RandomNumberGenerator().Randf() < 0.25){
+            difficulty++;
+        }
     }
 
     public void add_shield(){
@@ -76,5 +87,13 @@ public partial class GameState : Node
 
     public void set_hp_bar(HpBar i_bar){
         hp_hud = i_bar;
+    }
+
+    public int get_diffeculty(){
+        return difficulty;
+    }
+
+    public bool check_strat(StrategieHolder.Strategie i_strategy){
+        return strategies.check_strat(i_strategy);
     }
 }
