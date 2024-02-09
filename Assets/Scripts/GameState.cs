@@ -22,8 +22,15 @@ public partial class GameState : Node
     public override void _EnterTree()
     {
         strategies = new StrategieHolder();
-        //strategies.add_strategie(StrategieHolder.Strategie.Speed);
-        //strategies.add_strategie(StrategieHolder.Strategie.FireRate);
+        strategies.set_strategies(
+            new Array<StrategieHolder.Strategie>(){
+                StrategieHolder.Strategie.Speed,
+                StrategieHolder.Strategie.Speed,
+                StrategieHolder.Strategie.Speed,
+                StrategieHolder.Strategie.FireRate,
+                StrategieHolder.Strategie.FireRate
+            }
+        );
         base._EnterTree();
         if(gs == null){
             lives = 3;
@@ -32,6 +39,7 @@ public partial class GameState : Node
             difficulty = 1;
             gs = this;
         }
+        
         gameOverScene = ResourceLoader.Load<PackedScene>("res://Assets/Scenes/GameOverScreen.tscn");
     }
 
@@ -76,7 +84,7 @@ public partial class GameState : Node
     }
 
     private void gameOver(){
-        GetTree().ChangeSceneToPacked(gameOverScene);
+        GetTree().CallDeferred("change_scene_to_packed", gameOverScene);
     }
 
     public void reset(){
@@ -93,7 +101,7 @@ public partial class GameState : Node
         return difficulty;
     }
 
-    public bool check_strat(StrategieHolder.Strategie i_strategy){
-        return strategies.check_strat(i_strategy);
+    public int check_strat(StrategieHolder.Strategie i_strategy){
+        return strategies.check_strategy(i_strategy);
     }
 }
