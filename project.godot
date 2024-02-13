@@ -29,12 +29,6 @@ window/size/mode=3
 
 project/assembly_name="Space Invaders"
 
-[importer_defaults]
-
-animation_library={
-"gltf/naming_version": 0
-}
-
 [input]
 
 move_left={

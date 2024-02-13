@@ -9,7 +9,6 @@ public partial class Aliens : Path2D
 
 	[Export]
 	private double speed = 100;
-	private int distance = 200;
 	private Array<PathFollow2D> paths;
 
 	private readonly PackedScene alien = ResourceLoader.Load<PackedScene>("res://Assets/Scenes/space_invader.tscn");
@@ -27,13 +26,11 @@ public partial class Aliens : Path2D
 	public override void _PhysicsProcess(double delta)
 	{
 		for(int i = 0; i < paths.Count; i++){
-			paths[i].Progress += (float)(speed * delta * (2 + ((float)gs.get_diffeculty()/4)));
+			paths[i].Progress += (float)(speed * delta * (2 + (float)gs.get_diffeculty()/4));
 		}
 	}
 
 	private void _on_timer_timeout(){
-		Timer timer = GetNode<Timer>("Timer");
-		timer.WaitTime = distance/(100*(2 + ((float)gs.get_diffeculty()/4)));
 		if(paths.Count < calc_max_alines()){
 			add_alien();
 		}
