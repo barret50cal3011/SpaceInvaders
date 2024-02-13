@@ -12,6 +12,7 @@ grow_vertical = 2
 script = ExtResource("1_or13a")
 
 [node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
 color = Color(0.0666667, 0.0666667, 0.0666667, 1)
@@ -36,6 +37,7 @@ theme_override_font_sizes/font_size = 24
 text = "New Game"
 
 [node name="Strategy" type="Button" parent="."]
+layout_mode = 0
 offset_left = 864.0
 offset_top = 528.0
 offset_right = 1056.0

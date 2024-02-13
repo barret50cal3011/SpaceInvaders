@@ -90,6 +90,7 @@ public partial class GameState : Node
     public void reset(){
         points = 0;
         lives = max_lives;
+        difficulty = 0;
         
     }
 
