@@ -22,8 +22,8 @@ public partial class SpaceInvader : CharacterBody2D
         float rand = new RandomNumberGenerator().Randf();
         if(rand < 0.05f){
             Area2D shield_instance = shield_pu.Instantiate<Area2D>();
+            GetTree().Root.AddChild(shield_instance);
             shield_instance.Position = GlobalPosition;
-            GetTree().Root.CallDeferred("add_child",shield_instance);
         }
         GetNode<Aliens>("../..").remove_path(GetNode<PathFollow2D>(".."));
 		GetNode("..").QueueFree();

@@ -20,9 +20,7 @@ public partial class Aliens : Path2D
 		paths = new Array<PathFollow2D>();
 		Array<Node> nodes = GetChildren();
 		foreach(Node node in nodes){
-			if(node.GetType().Equals("PathFollow2D")){
-				paths.Add((PathFollow2D)node);
-			}
+			paths.Add((PathFollow2D)node);
 		}
 	}
 

@@ -36,11 +36,13 @@ public partial class Tank : CharacterBody2D
         base._Ready();
 		gs = GameState.get_game_state();
 
-		//increaces by 25% the speed for each Speed strat
-		speed = (int)(speed * ( 1 + (gs.check_strat(StrategieHolder.Strategie.Speed) * 0.25)));
+		if(gs.check_strat(StrategieHolder.Strategie.Speed)){
+			speed *= 2;
+		}
 
-		//decreaces by 0.1 sec the firerate for each FireRate strat
-		cooldown = cooldown - (0.1 * gs.check_strat(StrategieHolder.Strategie.FireRate));
+		if(gs.check_strat(StrategieHolder.Strategie.FireRate)){
+			cooldown /= 2;
+		}
     }
 
     public override void _Process(double delta)
