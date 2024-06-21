@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://53ltgc51w08j"]
+
+[ext_resource type="Script" path="res://Assets/Scripts/BoardTile.cs" id="1_6eb5m"]
+[ext_resource type="Texture2D" uid="uid://bc3icrpvv8img" path="res://Assets/Sprites/Frames.png" id="1_550hh"]
+
+[node name="BoardTile" type="Node2D"]
+scale = Vector2(5, 5)
+script = ExtResource("1_6eb5m")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_550hh")
+hframes = 4
+vframes = 4
+frame = 4

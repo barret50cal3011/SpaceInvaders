@@ -14,6 +14,7 @@ public partial class Bullet : RigidBody2D
             QueueFree();
         }
     }
+    
     private void _on_collition(Node body){
         if(body.IsInGroup("Alien")){
             ((SpaceInvader)body).kill();

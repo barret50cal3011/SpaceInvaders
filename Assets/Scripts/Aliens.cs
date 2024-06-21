@@ -19,7 +19,9 @@ public partial class Aliens : Path2D
 		paths = new Array<PathFollow2D>();
 		Array<Node> nodes = GetChildren();
 		foreach(Node node in nodes){
-			paths.Add((PathFollow2D)node);
+			if (node is PathFollow2D){
+				paths.Add((PathFollow2D)node);
+			}
 		}
 	}
 

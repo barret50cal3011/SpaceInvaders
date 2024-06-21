@@ -4,6 +4,7 @@ using System;
 public partial class MainMenu : Control
 {
 	private PackedScene game_scene = ResourceLoader.Load<PackedScene>("res://Assets/Scenes/Game.tscn");
+	private PackedScene strat_scene = ResourceLoader.Load<PackedScene>("res://Assets/Scenes/StrategyMenu.tscn");
 	private GameState gs;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -23,5 +24,10 @@ public partial class MainMenu : Control
 
 	private void _on_exit(){
 		GetTree().Quit();
+	}
+
+	private void _on_strategy(){
+		gs.clear_strategies();
+		GetTree().ChangeSceneToPacked(strat_scene);
 	}
 }

@@ -18,6 +18,7 @@ public partial class Tank : CharacterBody2D
 	private AnimatedSprite2D a_sprite;
 
     private readonly PackedScene bullet = ResourceLoader.Load<PackedScene>("res://Assets/Scenes/Bullet.tscn");
+	private readonly PackedScene pause = ResourceLoader.Load<PackedScene>("res://Assets/Scenes/GamePause.tscn");
 
     [Export] private double cooldown = 0.5;
     private double timer = 0;
@@ -36,13 +37,28 @@ public partial class Tank : CharacterBody2D
         base._Ready();
 		gs = GameState.get_game_state();
 
-		if(gs.check_strat(StrategieHolder.Strategie.Speed)){
+		if(gs.check_strat(Strategy.Type.Haste)){
 			speed *= 2;
 		}
 
-		if(gs.check_strat(StrategieHolder.Strategie.FireRate)){
+		if(gs.check_strat(Strategy.Type.FireRate)){
 			cooldown /= 2;
 		}
+    }
+
+    public override void _UnhandledInput(InputEvent @event)
+    {
+        if(@event is InputEventKey key_event){
+			if(key_event.GetKeycodeWithModifiers() == Key.Escape && key_event.IsPressed()){
+
+				Control pause_instance = pause.Instantiate<Control>();
+				pause_instance.SetPosition(new Vector2(0, 0));
+				GetParent().AddChild(pause_instance);
+				GetTree().Paused = true;
+				//GD.Print("Escape pressed");
+			}
+		}
+        base._Input(@event);
     }
 
     public override void _Process(double delta)
@@ -70,7 +86,7 @@ public partial class Tank : CharacterBody2D
 		MoveAndSlide();
 
         timer += delta;
-        if(Input.IsActionJustPressed("fire") && cooldown <= timer){
+        if(Input.IsActionPressed("fire") && cooldown <= timer){
             fire();
             timer = 0;
         }

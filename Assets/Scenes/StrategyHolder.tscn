@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://dn5io4n4h1cuu"]
+
+[ext_resource type="Texture2D" uid="uid://bc3icrpvv8img" path="res://Assets/Sprites/Frames.png" id="1_2ioul"]
+[ext_resource type="Script" path="res://Assets/Scripts/StrategyGUIHolder.cs" id="1_wm4wm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_41tex"]
+size = Vector2(80, 80)
+
+[node name="StrategyHolder" type="Node2D" groups=["StratHolder"]]
+script = ExtResource("1_wm4wm")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(5, 5)
+texture = ExtResource("1_2ioul")
+hframes = 4
+vframes = 4
+frame = 4
+
+[node name="Area2D" type="Area2D" parent="." groups=["StratHolder"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_41tex")

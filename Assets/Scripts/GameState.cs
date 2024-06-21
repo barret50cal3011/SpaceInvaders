@@ -93,7 +93,23 @@ public partial class GameState : Node
         return difficulty;
     }
 
-    public bool check_strat(StrategieHolder.Strategie i_strategy){
+    public bool check_strat(Strategy.Type i_strategy){
         return strategies.check_strat(i_strategy);
+    }
+
+    public void add_strategie(Strategy i_strategy){
+        strategies.add_strategie(i_strategy.get_type());
+    }
+
+    public void remove_strategie(Strategy i_strategy){
+        strategies.remove_strategie(i_strategy.get_type());
+    }
+
+    public void clear_strategies(){
+        strategies.clear_strategies();
+    }
+
+    public void print_strategies(){
+        strategies.print_strategies();
     }
 }

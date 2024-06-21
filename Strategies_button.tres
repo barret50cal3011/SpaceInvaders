@@ -1,0 +1,15 @@
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://bq22qry80n6p5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q3lcn"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l4knc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bw20o"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mwpxy"]
+
+[resource]
+Button/styles/focus = SubResource("StyleBoxFlat_q3lcn")
+Button/styles/hover = SubResource("StyleBoxFlat_l4knc")
+Button/styles/normal = SubResource("StyleBoxFlat_bw20o")
+Button/styles/pressed = SubResource("StyleBoxFlat_mwpxy")

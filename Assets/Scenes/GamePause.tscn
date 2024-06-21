@@ -1,0 +1,62 @@
+[gd_scene load_steps=3 format=3 uid="uid://qke8swcmuy37"]
+
+[ext_resource type="Script" path="res://Assets/Scripts/GamePause.cs" id="1_wqg1o"]
+
+[sub_resource type="Theme" id="Theme_858li"]
+Label/colors/font_color = Color(0, 0, 0, 0.752941)
+
+[node name="GamePause" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wqg1o")
+
+[node name="BackGround" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+theme = SubResource("Theme_858li")
+
+[node name="OptionsPanel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 800.0
+offset_top = 476.0
+offset_right = 1120.0
+offset_bottom = 700.0
+
+[node name="Resume Button" type="Button" parent="OptionsPanel"]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 32.0
+offset_right = 256.0
+offset_bottom = 96.0
+theme_override_colors/font_color = Color(0.784314, 0.784314, 0.784314, 1)
+theme_override_font_sizes/font_size = 24
+text = "Resume"
+
+[node name="Exit Button" type="Button" parent="OptionsPanel"]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 128.0
+offset_right = 256.0
+offset_bottom = 192.0
+theme_override_colors/font_color = Color(0.784314, 0.784314, 0.784314, 1)
+theme_override_font_sizes/font_size = 24
+text = "Exit to menu"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 642.0
+offset_top = 240.0
+offset_right = 1278.0
+offset_bottom = 372.0
+theme_override_colors/font_color = Color(0.784314, 0.784314, 0.784314, 1)
+theme_override_font_sizes/font_size = 96
+text = "Game Paused"
+
+[connection signal="button_up" from="OptionsPanel/Resume Button" to="." method="_on_resume_button_up"]
+[connection signal="button_up" from="OptionsPanel/Exit Button" to="." method="_on_exit_button_up"]

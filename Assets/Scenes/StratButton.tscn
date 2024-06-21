@@ -1,3 +1,22 @@
-[gd_scene format=3 uid="uid://bx872ub4b7wds"]
+[gd_scene load_steps=5 format=3 uid="uid://bx872ub4b7wds"]
+
+[ext_resource type="Theme" uid="uid://bq22qry80n6p5" path="res://Strategies_button.tres" id="1_sbhyn"]
+[ext_resource type="Texture2D" uid="uid://bc3icrpvv8img" path="res://Assets/Sprites/Frames.png" id="1_vvxh8"]
+[ext_resource type="Script" path="res://Assets/Scripts/StratButton.cs" id="3_ae4fi"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_efnmr"]
+atlas = ExtResource("1_vvxh8")
+region = Rect2(0, 0, 16, 16)
 
 [node name="StratButton" type="Button"]
+offset_left = 72.0
+offset_top = 50.0
+offset_right = 88.0
+offset_bottom = 66.0
+scale = Vector2(5, 5)
+theme = ExtResource("1_sbhyn")
+icon = SubResource("AtlasTexture_efnmr")
+script = ExtResource("3_ae4fi")
+strat = 3
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

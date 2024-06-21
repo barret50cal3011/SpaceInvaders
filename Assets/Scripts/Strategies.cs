@@ -4,22 +4,18 @@ using System;
 
 public class StrategieHolder
 {
-	public enum Strategie{
-        Speed,
-        FireRate
-    }
 
-	Array<Strategie> strategies;
+	Array<Strategy.Type> strategies;
 
 	public StrategieHolder(){
-		strategies = new Array<Strategie>();
+		strategies = new Array<Strategy.Type>();
 	}
 
-	public void add_strategie(Strategie i_strategie){
+	public void add_strategie(Strategy.Type i_strategie){
 		strategies.Add(i_strategie);
 	}
 
-	public void remove_strategie(Strategie i_strategie){
+	public void remove_strategie(Strategy.Type i_strategie){
 		strategies.Remove(i_strategie);
 	}
 
@@ -27,7 +23,14 @@ public class StrategieHolder
 		strategies.Clear();
 	}
 
-	public bool check_strat(Strategie strat){
+	public bool check_strat(Strategy.Type strat){
 		return strategies.Contains(strat);
+	}
+
+	public void print_strategies(){
+		GD.Print("Strategies:");
+		foreach(Strategy.Type strat in strategies){
+			GD.Print(strat);
+		}
 	}
 }

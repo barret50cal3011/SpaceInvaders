@@ -1,8 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://deivp35bowoc8"]
+[gd_scene load_steps=4 format=3 uid="uid://deivp35bowoc8"]
 
-[ext_resource type="PackedScene" uid="uid://clf8ktfdyo2fi" path="res://Assets/Scenes/Strategy.tscn" id="1_mcpkc"]
+[ext_resource type="PackedScene" uid="uid://bshvj0pyivj6y" path="res://Assets/Scenes/Strategy.tscn" id="1_mcpkc"]
+[ext_resource type="Script" path="res://Assets/Scripts/StrategyMenu.cs" id="1_xl1ss"]
+[ext_resource type="PackedScene" uid="uid://dn5io4n4h1cuu" path="res://Assets/Scenes/StrategyHolder.tscn" id="2_kaxf0"]
 
 [node name="Node2D" type="Node2D"]
+script = ExtResource("1_xl1ss")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -10,6 +13,33 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
+[node name="Main Menu" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 850.0
+offset_top = 995.0
+offset_right = 1069.0
+offset_bottom = 1048.0
+theme_override_font_sizes/font_size = 32
+text = "Back to Menu"
+
+[node name="StrategyHolder" parent="." instance=ExtResource("2_kaxf0")]
+position = Vector2(1265, 631)
+
+[node name="StrategyHolder2" parent="." instance=ExtResource("2_kaxf0")]
+position = Vector2(1344, 631)
+
 [node name="Strategy" parent="." instance=ExtResource("1_mcpkc")]
-position = Vector2(712, 638)
-type = 3
+position = Vector2(432, 706)
+
+[node name="Strategy2" parent="." instance=ExtResource("1_mcpkc")]
+position = Vector2(428, 549)
+
+[node name="Strategy3" parent="." instance=ExtResource("1_mcpkc")]
+position = Vector2(438, 357)
+type = 2
+
+[node name="Strategy4" parent="." instance=ExtResource("1_mcpkc")]
+position = Vector2(430, 891)
+type = 2
+
+[connection signal="pressed" from="Control/Main Menu" to="." method="_on_back_to_menu"]
